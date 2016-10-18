@@ -17,6 +17,7 @@ var AlbumSelector = React.createClass({
     return(
       <select id="albums" onChange={this.handleChange}>
         {options}
+        <option value="Select Album">Select Album</option>
       </select>
     )
   }

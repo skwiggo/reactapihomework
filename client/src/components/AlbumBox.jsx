@@ -13,7 +13,7 @@ var AlbumBox = React.createClass({
   },
 
   componentDidMount: function(){
-    var url = "https://api.spotify.com/v1/artists/0OdUWJ0sBjDrqHygGUXeCF/albums";
+    var url = "https://api.spotify.com/v1/artists/7bu3H8JO7d0UbMoVzbo70s/albums";
     console.log(url);
     var request = new XMLHttpRequest();
     request.open("GET",url);
@@ -34,7 +34,7 @@ var AlbumBox = React.createClass({
       <div>
         <h2>Albums Box</h2>
         <AlbumSelector albums={this.state.albums} selectAlbum={this.setFocusEntry}></AlbumSelector>
-        <AlbumDetail album={this.state.focusAlbum}></AlbumDetail>
+        <AlbumDetail albums={this.state.albums} album={this.state.focusAlbum}></AlbumDetail>
       </div>
     )
   }

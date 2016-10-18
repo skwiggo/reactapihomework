@@ -21445,7 +21445,7 @@
 	  },
 
 	  componentDidMount: function componentDidMount() {
-	    var url = "https://api.spotify.com/v1/artists/0OdUWJ0sBjDrqHygGUXeCF/albums";
+	    var url = "https://api.spotify.com/v1/artists/7bu3H8JO7d0UbMoVzbo70s/albums";
 	    console.log(url);
 	    var request = new XMLHttpRequest();
 	    request.open("GET", url);
@@ -21471,7 +21471,7 @@
 	        'Albums Box'
 	      ),
 	      React.createElement(AlbumSelector, { albums: this.state.albums, selectAlbum: this.setFocusEntry }),
-	      React.createElement(AlbumDetail, { album: this.state.focusAlbum })
+	      React.createElement(AlbumDetail, { albums: this.state.albums, album: this.state.focusAlbum })
 	    );
 	  }
 	});
@@ -21509,7 +21509,12 @@
 	    return React.createElement(
 	      "select",
 	      { id: "albums", onChange: this.handleChange },
-	      options
+	      options,
+	      React.createElement(
+	        "option",
+	        { value: "Select Album" },
+	        "Select Album"
+	      )
 	    );
 	  }
 	});
@@ -21527,9 +21532,15 @@
 	var AlbumDetail = function AlbumDetail(props) {
 	  if (!props.album) {
 	    return React.createElement(
-	      'h3',
+	      'ul',
 	      null,
-	      'No album selected...'
+	      props.albums.map(function (album, index) {
+	        return React.createElement(
+	          'li',
+	          { key: index, value: index },
+	          album.name
+	        );
+	      })
 	    );
 	  }
 	  return React.createElement(
@@ -21540,7 +21551,8 @@
 	      null,
 	      'Name: ',
 	      props.album.name
-	    )
+	    ),
+	    React.createElement('img', { src: props.album.images[0].url })
 	  );
 	};
 
