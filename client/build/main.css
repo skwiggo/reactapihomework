@@ -1,0 +1,41 @@
+body {
+  background-color: #30A9DE;
+  color: aliceblue;
+  font-family: Geneva, Tahoma, Verdana, sans-serif;
+  font-size: 15px;
+}
+
+h3 {
+  color: #ffc952;
+  text-shadow: 1px 1px #000000;
+}
+
+a {
+  text-decoration: none;
+  color: #47b8e0 ;
+}
+
+h2 {
+  font-size: 30px;
+  text-shadow: 2px 2px #000000;
+  text-decoration: none;
+}
+
+li {
+  text-decoration: none;
+  list-style-type: none;
+  font-size: 12px;
+  padding: 5px;
+}
+
+#app {
+  width: 75%;
+  height: 100%;
+  margin-left: 500px; 
+}
+
+#response {
+  width: 50%;
+  background-color: #ff7473;
+  margin-right: 400px;
+}

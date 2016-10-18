@@ -21468,7 +21468,7 @@
 	      React.createElement(
 	        'h2',
 	        null,
-	        'Albums Box'
+	        'Discographic'
 	      ),
 	      React.createElement(AlbumSelector, { albums: this.state.albums, selectAlbum: this.setFocusEntry }),
 	      React.createElement(AlbumDetail, { albums: this.state.albums, album: this.state.focusAlbum })
@@ -21527,21 +21527,22 @@
 /* 174 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	var React = __webpack_require__(1);
 
 	var AlbumDetail = function AlbumDetail(props) {
+	  var spotify = 'https://embed.spotify.com/?uri=spotify:album:';
 	  if (!props.album) {
 	    return React.createElement(
-	      "ul",
+	      'ul',
 	      null,
 	      props.albums.map(function (album, index) {
 
 	        if (album.available_markets.indexOf("ES") > -1) {
 
 	          return React.createElement(
-	            "li",
+	            'li',
 	            { key: index, value: index },
 	            album.name
 	          );
@@ -21550,24 +21551,25 @@
 	    );
 	  }
 	  return React.createElement(
-	    "div",
-	    null,
+	    'div',
+	    { id: 'response' },
 	    React.createElement(
-	      "h3",
+	      'h3',
 	      null,
-	      "Name: ",
+	      'Name: ',
 	      props.album.name
 	    ),
-	    React.createElement("img", { src: props.album.images[0].url, width: "200px", height: "200px" }),
+	    React.createElement('img', { src: props.album.images[0].url, width: '200px', height: '200px' }),
 	    React.createElement(
-	      "h3",
+	      'h3',
 	      null,
 	      React.createElement(
-	        "a",
+	        'a',
 	        { href: props.album.external_urls.spotify },
-	        "Spotify Link"
+	        'Spotify Link'
 	      )
-	    )
+	    ),
+	    React.createElement('iframe', { src: spotify + props.album.id, width: '300', height: '380', frameborder: '0', allowtransparency: 'true' })
 	  );
 	};
 

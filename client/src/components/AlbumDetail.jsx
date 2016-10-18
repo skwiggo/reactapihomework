@@ -1,6 +1,7 @@
 var React = require('react');
 
 var AlbumDetail = function(props) {
+  var spotify = 'https://embed.spotify.com/?uri=spotify:album:';
   if(!props.album) {
     return(<ul>
         {props.albums.map(function(album, index) {
@@ -13,10 +14,11 @@ var AlbumDetail = function(props) {
         </ul>)
     } 
   return(
-      <div>
+      <div id="response">
         <h3>Name: {props.album.name}</h3>
         <img src={props.album.images[0].url} width="200px" height="200px"></img>
         <h3><a href={props.album.external_urls.spotify}>Spotify Link</a></h3>
+        <iframe src={spotify + props.album.id} width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
       </div>
     )
 }

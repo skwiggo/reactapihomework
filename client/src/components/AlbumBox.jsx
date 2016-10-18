@@ -32,7 +32,7 @@ var AlbumBox = React.createClass({
   render:function(){
     return(
       <div>
-        <h2>Albums Box</h2>
+        <h2>Discographic</h2>
         <AlbumSelector albums={this.state.albums} selectAlbum={this.setFocusEntry}></AlbumSelector>
         <AlbumDetail albums={this.state.albums} album={this.state.focusAlbum}></AlbumDetail>
       </div>
