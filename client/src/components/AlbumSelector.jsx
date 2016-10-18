@@ -11,7 +11,9 @@ var AlbumSelector = React.createClass({
 
   render: function(){
     var options = this.props.albums.map(function(album, index){
-      return <option key={index} value={index}>{album.name}</option>
+      if(album.available_markets.indexOf("ES") > -1) {
+        return <option key={index} value={index}>{album.name}</option>
+      }
     })    
 
     return(

@@ -21499,11 +21499,13 @@
 
 	  render: function render() {
 	    var options = this.props.albums.map(function (album, index) {
-	      return React.createElement(
-	        "option",
-	        { key: index, value: index },
-	        album.name
-	      );
+	      if (album.available_markets.indexOf("ES") > -1) {
+	        return React.createElement(
+	          "option",
+	          { key: index, value: index },
+	          album.name
+	        );
+	      }
 	    });
 
 	    return React.createElement(
@@ -21525,34 +21527,47 @@
 /* 174 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	var React = __webpack_require__(1);
 
 	var AlbumDetail = function AlbumDetail(props) {
 	  if (!props.album) {
 	    return React.createElement(
-	      'ul',
+	      "ul",
 	      null,
 	      props.albums.map(function (album, index) {
-	        return React.createElement(
-	          'li',
-	          { key: index, value: index },
-	          album.name
-	        );
+
+	        if (album.available_markets.indexOf("ES") > -1) {
+
+	          return React.createElement(
+	            "li",
+	            { key: index, value: index },
+	            album.name
+	          );
+	        }
 	      })
 	    );
 	  }
 	  return React.createElement(
-	    'div',
+	    "div",
 	    null,
 	    React.createElement(
-	      'h3',
+	      "h3",
 	      null,
-	      'Name: ',
+	      "Name: ",
 	      props.album.name
 	    ),
-	    React.createElement('img', { src: props.album.images[0].url })
+	    React.createElement("img", { src: props.album.images[0].url, width: "200px", height: "200px" }),
+	    React.createElement(
+	      "h3",
+	      null,
+	      React.createElement(
+	        "a",
+	        { href: props.album.external_urls.spotify },
+	        "Spotify Link"
+	      )
+	    )
 	  );
 	};
 
